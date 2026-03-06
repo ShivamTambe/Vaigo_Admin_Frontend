@@ -42,7 +42,7 @@ export default function Submissions() {
         setIsSaving(true);
         try {
             const id = editingSubmission._id || editingSubmission.id;
-            const res = await fetch(`http://localhost:5001/api/admin/${activeTab}/${id}`, {
+            const res = await fetch(`https://vaigo-admin-backend.onrender.com/api/admin/${activeTab}/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -135,11 +135,11 @@ export default function Submissions() {
             setLoading(true);
             try {
                 const [contactsRes, schedulesRes, partnershipsRes, subscribersRes, demosRes] = await Promise.all([
-                    fetch('http://localhost:5001/api/admin/contacts').catch(() => []),
-                    fetch('http://localhost:5001/api/admin/schedules').catch(() => []),
-                    fetch('http://localhost:5001/api/admin/partnerships').catch(() => []),
-                    fetch('http://localhost:5001/api/admin/subscribers').catch(() => []),
-                    fetch('http://localhost:5001/api/admin/demos').catch(() => []),
+                    fetch('https://vaigo-admin-backend.onrender.com/api/admin/contacts').catch(() => []),
+                    fetch('https://vaigo-admin-backend.onrender.com/api/admin/schedules').catch(() => []),
+                    fetch('https://vaigo-admin-backend.onrender.com/api/admin/partnerships').catch(() => []),
+                    fetch('https://vaigo-admin-backend.onrender.com/api/admin/subscribers').catch(() => []),
+                    fetch('https://vaigo-admin-backend.onrender.com/api/admin/demos').catch(() => []),
                 ]);
 
                 const parseData = async (res) => (res && res.json ? await res.json().catch(() => []) : []);
